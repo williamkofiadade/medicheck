@@ -10,7 +10,7 @@ const NavBar = ({ active, onNavigate }) => {
         <button className={active === 'home' ? 'active' : ''} onClick={makeHandler('home')}>
           Home
         </button>
-        <button className={active === 'about' ? 'active' : ''} onClick={makeHandler('about')}>
+        <button className={active === 'team' ? 'active' : ''} onClick={makeHandler('team')}>
           About Us
         </button>
         <button className={active === 'contact' ? 'active' : ''} onClick={makeHandler('contact')}>
