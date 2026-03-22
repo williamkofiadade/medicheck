@@ -1,14 +1,15 @@
 :root {
-  --blue-900: #10408f;
+  --blue-900: #0b3c86;
   --blue-800: #1a57b3;
   --blue-600: #2f75e0;
   --blue-500: #52a5f8;
   --text-primary: #0f2f6b;
   --text-secondary: #4d5a6e;
-  --bg: #f7f9fc;
+  --bg: #f6f9fe;
   --card: #ffffff;
-  --shadow: 0 22px 46px rgba(12, 59, 119, 0.18);
-  --radius: 24px;
+  --card-soft: #f9fafb;
+  --shadow: 0 16px 42px rgba(12, 59, 119, 0.08);
+  --radius: 16px;
   --panel: #eef2f6;
 }
 
@@ -26,7 +27,7 @@ body {
 .app {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 48px 64px;
+  padding: 0 28px 80px;
 }
 
 .nav {
@@ -108,52 +109,61 @@ textarea:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   align-items: center;
   gap: 44px;
-  padding: 70px 0 70px;
+  padding: 40px 0 32px;
 }
 
 .hero-text h1 {
-  font-size: clamp(46px, 6vw, 62px);
+  font-size: clamp(32px, 4.6vw, 60px);
   line-height: 1.05;
-  margin: 0 0 10px 0;
-  letter-spacing: -0.2px;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
   font-weight: 800;
-  color: #0d3f87;
+  color: #0c3f87;
 }
 
 .hero-text h1 span {
   display: block;
-  color: #62b1f6;
+  margin-top: 6px;
+  font-size: 0.95em;
+  color: #4eaaf9;
 }
 
 .eyebrow { display: none; }
 
-.subhead {
-  font-size: 18px;
-  color: #3e4a5e;
-  max-width: 660px;
-  line-height: 1.65;
-  margin: 0 0 32px 0;
-  font-weight: 500;
-}
-
 .primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: linear-gradient(135deg, #0f63d8, #0a52b2);
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 14px 24px;
+  padding: 16px 28px;
   font-size: 16px;
   font-weight: 600;
   box-shadow: 0 16px 32px rgba(10, 82, 178, 0.32);
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
+  margin-top: 12px;
+  line-height: 1.05;
 }
 
 .primary:hover { transform: translateY(-1px); box-shadow: 0 16px 38px rgba(10, 82, 178, 0.32); }
 
 .primary.full { width: 100%; }
 
-.arrow { margin-left: 8px; font-weight: 700; }
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.arrow svg {
+  display: block;
+}
 
 .hero-media {
   position: relative;
@@ -193,45 +203,62 @@ textarea:focus-visible {
 .section-header { margin-top: 0; margin-bottom: 20px; }
 
 .section-header h2 {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 700;
-  color: #0d3f87;
+  margin: 0 0 12px 0;
+  font-size: 34px;
+  font-weight: 800;
+  color: #0c3f87;
+  letter-spacing: -0.2px;
 }
 
 .section-header p {
-  margin: 8px 0 0;
-  color: #556277;
+  margin: 0;
+  color: #4d5a6e;
   font-size: 15px;
+  line-height: 1.55;
 }
 
 .about {
-  background: #f5f7fa;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 28px calc(50vw - 600px) 38px;
+  background: #f3f6fb;
+  padding: 56px 0 72px;
 }
 
 .assessment {
   background: transparent;
-  padding: 0;
+  padding: 0 12px;
   box-shadow: none;
   display: grid;
-  gap: 24px;
+  gap: 32px;
+  margin-top: 8px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .checks {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  padding: 8px 0;
+}
+
+@media (max-width: 1024px) {
+  .checks { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .app { padding: 24px 24px 64px; }
+}
+
+@media (max-width: 720px) {
+  .checks { grid-template-columns: 1fr; }
+  .section-header h2 { font-size: 30px; }
+  .section-header p { font-size: 14px; }
+  .check-card { padding: 18px 18px 20px; }
 }
 
 .check-card {
-  background: #fdfefe;
-  border-radius: 12px;
-  padding: 18px;
-  border: 1px solid #e2e8f1;
-  box-shadow: 0 10px 24px rgba(15, 47, 107, 0.08);
+  background: var(--card-soft);
+  border-radius: var(--radius);
+  padding: 20px 20px 22px;
+  border: 1px solid #e8edf5;
+  box-shadow: var(--shadow);
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -239,40 +266,59 @@ textarea:focus-visible {
 
 .check-title {
   font-weight: 700;
-  margin-bottom: 8px;
-  color: #0d3f87;
+  margin-bottom: 10px;
+  color: #0c3f87;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 16px;
 }
 
 .check-icon {
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
 }
 
 .check-grid {
   display: grid;
-  gap: 6px;
-  margin-top: 2px;
+  gap: 8px;
+  margin-top: 4px;
   flex: 1;
 }
 
-.check-item {
+.symptom-item {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
-  font-size: 13px;
-  color: #3f4b60;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1f2c3c;
+  margin-bottom: 0;
+  padding: 0;
 }
 
-.controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 18px;
-  align-items: start;
-  margin: 14px auto 10px;
-  max-width: 1400px;
+.symptom-item input {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: #1457b8;
+  margin: 0;
 }
+
+.symptom-item span {
+  line-height: 1.3;
+  padding: 0;
+  margin: 0;
+}
+.symptom-item input:focus-visible {
+  outline: 2px solid #0a4b99;
+  outline-offset: 2px;
+}
+
 
 .control label {
   display: block;
@@ -296,7 +342,21 @@ select, input, textarea {
 }
 
 .controls {
-  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+  align-items: start;
+  margin: 14px auto 10px;
+  max-width: 1400px;
+}
+
+.control label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #1f5db8;
+  text-align: left;
+  font-size: 18px;
 }
 
 select:focus, input:focus, textarea:focus {
@@ -304,14 +364,6 @@ select:focus, input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(47, 141, 251, 0.15);
   outline: none;
   background: white;
-}
-
-input[type='checkbox'] {
-  width: 15px;
-  height: 15px;
-  border: 1.3px solid #d3d8e2;
-  border-radius: 4px;
-  accent-color: #1f6fd5;
 }
 
 .diagnose-row {
@@ -325,12 +377,34 @@ input[type='checkbox'] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  width: 250px;
-  padding: 16px 22px;
+  gap: 12px;
+  min-width: 260px;
+  padding: 15px 26px;
   font-size: 18px;
-  border-radius: 10px;
-  box-shadow: 0 16px 36px rgba(12, 59, 119, 0.28);
+  font-weight: 700;
+  border-radius: 12px;
+  background: #0a4b99;
+  box-shadow: 0 10px 24px rgba(6, 47, 114, 0.28);
+  border: none;
+}
+
+.diagnose:hover {
+  background: #0c54ac;
+}
+
+.diagnose-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.assessment {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  display: grid;
+  gap: 32px;
+  margin-top: 8px;
 }
 
 .results { margin-top: 36px; }
@@ -540,3 +614,4 @@ input[type='checkbox'] {
   .nav { flex-direction: column; gap: 8px; }
   .badge { position: static; margin-top: 12px; }
 }
+

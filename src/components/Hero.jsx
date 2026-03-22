@@ -7,11 +7,14 @@ const Hero = ({ onStart, media }) => (
         Clinical Precision.
         <span>Human Centered Care.</span>
       </h1>
-      <p className="subhead">
-        MediCheck leverages advanced diagnostics and professional medical oversight to provide immediate clinical insights for your health journey.
-      </p>
       <button className="primary" onClick={onStart}>
-        Start Symptom Check <span className="arrow">?</span>
+        Start Symptom Check
+        <span className="arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4.25V9.25" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            <path d="M5.5 8.75L8 11.75L10.5 8.75" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
       </button>
     </div>
     <div className="hero-media">
