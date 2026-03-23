@@ -9,7 +9,11 @@ const TeamSection = ({ team, media }) => (
     <div className="team-grid">
       {team.map((member) => (
         <div key={member.name} className="team-card">
-          <img src={member.image || media.teamPhoto} alt={member.name} />
+          {member.image || media.teamPhoto ? (
+            <img src={member.image || media.teamPhoto} alt={member.name} />
+          ) : (
+            <div className="team-photo-blank" aria-hidden="true" />
+          )}
           <div className="team-info">
             <div className="team-name">{member.name}</div>
             <div className="team-role">{member.role}</div>

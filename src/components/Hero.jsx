@@ -18,7 +18,11 @@ const Hero = ({ onStart, media }) => (
       </button>
     </div>
     <div className="hero-media">
-      <img src={media.heroPhoto} alt="Clinician using tablet" className="hero-img" />
+      {media.heroPhoto ? (
+        <img src={media.heroPhoto} alt="Clinician using tablet" className="hero-img" />
+      ) : (
+        <div className="hero-img hero-img--blank" aria-hidden="true" />
+      )}
       <div className="badge">
         <img src={media.badgeIcon} alt="Shield" />
         <div>
